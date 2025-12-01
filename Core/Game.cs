@@ -13,20 +13,21 @@ namespace VGP133_Final_Assignment.Core
     {
         public Game()
         {
-            _currentScene = new CharacterCreation();
+            _sceneHandler.CurrentScene = new MainMenu(_sceneHandler);
         }
 
         public void Run()
         {
             while (!Raylib.WindowShouldClose())
             {
+                _sceneHandler.CurrentScene?.Update();
                 Raylib.BeginDrawing();
-                _currentScene?.Render();
 
+                _sceneHandler.CurrentScene?.Render();
                 Raylib.EndDrawing();
             }
         }
 
-        private Scene? _currentScene;
+        private SceneHandler _sceneHandler = new SceneHandler();
     }
 }
