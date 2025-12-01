@@ -3,25 +3,30 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using Raylib_cs;
+// Custom
+using VGP133_Final_Assignment.Scenes;
 
 
 namespace VGP133_Final_Assignment.Core
 {
     public class Game
     {
-
+        public Game()
+        {
+            _currentScene = new CharacterCreation();
+        }
 
         public void Run()
         {
             while (!Raylib.WindowShouldClose())
             {
                 Raylib.BeginDrawing();
-                Raylib.ClearBackground(Color.White);
-
-                Raylib.DrawText("Hello, world!", 12, 12, 20, Color.Black);
+                _currentScene?.Render();
 
                 Raylib.EndDrawing();
             }
         }
+
+        private Scene? _currentScene;
     }
 }
