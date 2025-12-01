@@ -11,7 +11,7 @@ namespace VGP133_Final_Assignment.Scenes
             SceneName = "Character Creation";
         }
 
-        public override void Draw()
+        public override void Render()
         {
             throw new NotImplementedException();
         }

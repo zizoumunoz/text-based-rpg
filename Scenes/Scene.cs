@@ -7,7 +7,7 @@ namespace VGP133_Final_Assignment.Scenes
     public abstract class Scene
     {
         public abstract void Update();
-        public abstract void Draw();
+        public abstract void Render();
 
         private string? _sceneName;
 
