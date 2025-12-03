@@ -26,6 +26,7 @@ namespace VGP133_Final_Assignment.Core
                 _sceneHandler.CurrentScene?.Render();
                 Raylib.EndDrawing();
             }
+            _sceneHandler.CurrentScene?.Unload();
         }
 
         private SceneHandler _sceneHandler = new SceneHandler();
