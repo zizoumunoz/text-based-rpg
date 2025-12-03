@@ -27,7 +27,6 @@ namespace VGP133_Final_Assignment.Components
             {
                 _isMouseOnText = false;
             }
-
             if (_isMouseOnText && _textData.Length < _maxChars)
             {
                 Raylib.SetMouseCursor(MouseCursor.IBeam);
@@ -52,12 +51,25 @@ namespace VGP133_Final_Assignment.Components
             {
                 Raylib.SetMouseCursor(MouseCursor.Arrow);
             }
+            if (_isMouseOnText)
+            {
+                _framesCounter++;
+
+            }
+            else { _framesCounter = 0; }
         }
 
         public void Render()
         {
             Raylib.DrawRectangleRec(_box, Color.Red);
             Raylib.DrawText(_textData, _xCoord, _yCoord, 50, Color.White);
+
+            // blinking cursor
+            if (_isMouseOnText && (_framesCounter / 20) % 2 == 0)
+            {
+                int textWidth = Raylib.MeasureText(_textData, 50);
+                Raylib.DrawText("_", _xCoord + textWidth, _yCoord, 50, Color.Black);
+            }
         }
 
         private int _width;
@@ -65,7 +77,8 @@ namespace VGP133_Final_Assignment.Components
         private int _xCoord;
         private int _yCoord;
         private int _maxChars;
-        private string _textData = "";
+        private int _framesCounter = 0;
+        private string _textData = "Name";
         private bool _isMouseOnText;
         private Rectangle _box;
 
