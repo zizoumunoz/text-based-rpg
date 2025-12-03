@@ -26,6 +26,7 @@ namespace VGP133_Final_Assignment.Scenes
                 case KeyboardKey.One:
                     Handler.CurrentScene = new CharacterCreation(Handler);
                     break;
+
                 default:
                     break;
             }
