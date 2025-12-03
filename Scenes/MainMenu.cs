@@ -20,6 +20,12 @@ namespace VGP133_Final_Assignment.Scenes
             _background.Render();
             Raylib.DrawText("Main Menu Scene", 200, 200, 20, Color.Black);
         }
+
+        public override void Unload()
+        {
+            base.Unload();
+        }
+
         public override void Update()
         {
             KeyboardKey key = (KeyboardKey)Raylib.GetKeyPressed();
@@ -32,11 +38,6 @@ namespace VGP133_Final_Assignment.Scenes
                 default:
                     break;
             }
-        }
-
-        private Sprite _background =
-            new Sprite("Assets/book_sketch.png", new System.Numerics.Vector2(0f, 0f), 5f);
-
-        public Sprite Background { get => _background; set => _background = value; }
+        } 
     }
 }
