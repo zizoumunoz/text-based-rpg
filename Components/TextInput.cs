@@ -14,6 +14,7 @@ namespace VGP133_Final_Assignment.Components
             _xCoord = xCoord;
             _yCoord = yCoord;
             _box = new Rectangle(_xCoord, _yCoord, _width, _height);
+            _maxChars = 24;
         }
 
         public void Update()
@@ -27,9 +28,25 @@ namespace VGP133_Final_Assignment.Components
                 _isMouseOnText = false;
             }
 
-            if (_isMouseOnText)
+            if (_isMouseOnText && _textData.Length < _maxChars)
             {
                 Raylib.SetMouseCursor(MouseCursor.IBeam);
+                int key = Raylib.GetCharPressed();
+
+                // while key is returing something. getcharpressed returns zero if nothing pressed
+                while (key > 0)
+                {
+                    if (key >= 32 && key <= 125)
+                    {
+                        _textData += (char)key;
+                    }
+                    key = Raylib.GetCharPressed();
+                }
+
+                if (Raylib.IsKeyPressed(KeyboardKey.Backspace) && _textData.Length > 0)
+                {
+                    _textData = _textData.Remove(_textData.Length - 1);
+                }
             }
             else
             {
@@ -39,15 +56,16 @@ namespace VGP133_Final_Assignment.Components
 
         public void Render()
         {
-
             Raylib.DrawRectangleRec(_box, Color.Red);
+            Raylib.DrawText(_textData, _xCoord, _yCoord, 50, Color.White);
         }
 
         private int _width;
         private int _height;
         private int _xCoord;
         private int _yCoord;
-        private string? _textData;
+        private int _maxChars;
+        private string _textData = "";
         private bool _isMouseOnText;
         private Rectangle _box;
 
