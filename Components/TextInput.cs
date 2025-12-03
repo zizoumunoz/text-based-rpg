@@ -62,13 +62,13 @@ namespace VGP133_Final_Assignment.Components
         public void Render()
         {
             Raylib.DrawRectangleRec(_box, Color.Red);
-            Raylib.DrawText(_textData, _xCoord, _yCoord, _fontSize, Color.White);
+            Raylib.DrawText(_textData, _xCoord + _padding, _yCoord, _fontSize, Color.White);
 
             // blinking cursor
             if (_isMouseOnText && (_framesCounter / 20) % 2 == 0)
             {
                 int textWidth = Raylib.MeasureText(_textData, _fontSize);
-                Raylib.DrawText("_", _xCoord + textWidth, _yCoord, _fontSize, Color.Black);
+                Raylib.DrawText("_", _xCoord + _padding + textWidth, _yCoord, _fontSize, Color.Black);
             }
         }
 
@@ -78,6 +78,7 @@ namespace VGP133_Final_Assignment.Components
         private int _yCoord;
         private int _maxChars;
         private int _framesCounter = 0;
+        private const int _padding = 10;
         private const int _fontSize = 50;
         private string _textData = "Name";
         private bool _isMouseOnText;
