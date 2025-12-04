@@ -22,6 +22,7 @@ namespace VGP133_Final_Assignment.Scenes
         {
             _nameBox.Update();
             UpdateButtonGroup(_hairButtonA, _hairButtonB, _hairButtonC);
+
             if (_hairButtonA.IsPressed)
             {
                 _currentHairColor = HairColor.Pink;
@@ -34,11 +35,41 @@ namespace VGP133_Final_Assignment.Scenes
             {
                 _currentHairColor = HairColor.Blue;
             }
+
             ResetButtonGroup(_hairButtonA, _hairButtonB, _hairButtonC);
 
             UpdateButtonGroup(_genderButtonA, _genderButtonB, _genderButtonC);
-            UpdateButtonGroup(_ageButtonA, _ageButtonB, _ageButtonC);
 
+            if (_genderButtonA.IsPressed)
+            {
+                _currentGender = Gender.Masc;
+            }
+            else if (_genderButtonB.IsPressed)
+            {
+                _currentGender = Gender.Other;
+            }
+            else if (_genderButtonC.IsPressed)
+            {
+                _currentGender = Gender.Fem;
+            }
+
+            ResetButtonGroup(_genderButtonA, _genderButtonB, _genderButtonC);
+
+            UpdateButtonGroup(_ageButtonA, _ageButtonB, _ageButtonC);
+            if (_ageButtonA.IsPressed)
+            {
+                _currentAge = Age.Young;
+            }
+            else if (_ageButtonB.IsPressed)
+            {
+                _currentAge = Age.Adult;
+            }
+            else if (_ageButtonC.IsPressed)
+            {
+                _currentAge = Age.Old;
+            }
+
+            ResetButtonGroup(_ageButtonA, _ageButtonB, _ageButtonC);
         }
 
         public override void Render()
@@ -54,6 +85,8 @@ namespace VGP133_Final_Assignment.Scenes
 
             Raylib.DrawText("Character Creation Scene", 0, 0, 20, Color.Black);
             Raylib.DrawText($"Current hair: {(int)_currentHairColor}", 0, 20, 20, Color.Black);
+            Raylib.DrawText($"Current gender: {(int)_currentGender}", 0, 40, 20, Color.Black);
+            Raylib.DrawText($"Current age: {(int)_currentAge}", 0, 60, 20, Color.Black);
         }
 
         private void RenderButtonGroup(ButtonCircle buttonA, ButtonCircle buttonB, ButtonCircle buttonC)
@@ -84,6 +117,13 @@ namespace VGP133_Final_Assignment.Scenes
             Blue
         }
 
+        private enum Gender
+        {
+            Masc,
+            Other,
+            Fem
+        }
+
         private enum Age
         {
             Young,
@@ -91,12 +131,6 @@ namespace VGP133_Final_Assignment.Scenes
             Old
         }
 
-        private enum Gender
-        {
-            Masc,
-            Fem,
-            Other
-        }
 
         private HairColor _currentHairColor;
         private Age _currentAge;
