@@ -88,6 +88,8 @@ namespace VGP133_Final_Assignment.Scenes
             Raylib.DrawText($"Current hair: {(int)_currentHairColor}", 0, 20, 20, Color.Black);
             Raylib.DrawText($"Current gender: {(int)_currentGender}", 0, 40, 20, Color.Black);
             Raylib.DrawText($"Current age: {(int)_currentAge}", 0, 60, 20, Color.Black);
+
+            _player.Render();
         }
 
         private void RenderButtonGroup(ButtonCircle buttonA, ButtonCircle buttonB, ButtonCircle buttonC)
@@ -116,6 +118,8 @@ namespace VGP133_Final_Assignment.Scenes
         private HairColor _currentHairColor;
         private Age _currentAge;
         private Gender _currentGender;
+
+        private Character _player = new Character(HairColor.Blue, Gender.Other, Age.Young, Class.Jester);
 
         private TextInput _nameBox = new TextInput(540, 51, 248, 112);
 
