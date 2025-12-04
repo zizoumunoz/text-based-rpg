@@ -22,6 +22,20 @@ namespace VGP133_Final_Assignment.Scenes
         {
             _nameBox.Update();
             UpdateButtonGroup(_hairButtonA, _hairButtonB, _hairButtonC);
+            if (_hairButtonA.IsPressed)
+            {
+                _currentHairColor = HairColor.Pink;
+            }
+            else if (_hairButtonB.IsPressed)
+            {
+                _currentHairColor = HairColor.Yellow;
+            }
+            else if (_hairButtonC.IsPressed)
+            {
+                _currentHairColor = HairColor.Blue;
+            }
+            ResetButtonGroup(_hairButtonA, _hairButtonB, _hairButtonC);
+
             UpdateButtonGroup(_genderButtonA, _genderButtonB, _genderButtonC);
             UpdateButtonGroup(_ageButtonA, _ageButtonB, _ageButtonC);
 
@@ -33,13 +47,13 @@ namespace VGP133_Final_Assignment.Scenes
 
             _background.Render();
 
-            Raylib.DrawText("Character Creation Scene", 0, 0, 20, Color.Black);
-
             _nameBox.Render();
             RenderButtonGroup(_hairButtonA, _hairButtonB, _hairButtonC);
             RenderButtonGroup(_genderButtonA, _genderButtonB, _genderButtonC);
             RenderButtonGroup(_ageButtonA, _ageButtonB, _ageButtonC);
 
+            Raylib.DrawText("Character Creation Scene", 0, 0, 20, Color.Black);
+            Raylib.DrawText($"Current hair: {(int)_currentHairColor}", 0, 20, 20, Color.Black);
         }
 
         private void RenderButtonGroup(ButtonCircle buttonA, ButtonCircle buttonB, ButtonCircle buttonC)
@@ -54,11 +68,39 @@ namespace VGP133_Final_Assignment.Scenes
             buttonA.Update();
             buttonB.Update();
             buttonC.Update();
+        }
 
+        private void ResetButtonGroup(ButtonCircle buttonA, ButtonCircle buttonB, ButtonCircle buttonC)
+        {
             buttonA.IsPressed = false;
             buttonB.IsPressed = false;
             buttonC.IsPressed = false;
         }
+
+        private enum HairColor
+        {
+            Pink,
+            Yellow,
+            Blue
+        }
+
+        private enum Age
+        {
+            Young,
+            Adult,
+            Old
+        }
+
+        private enum Gender
+        {
+            Masc,
+            Fem,
+            Other
+        }
+
+        private HairColor _currentHairColor;
+        private Age _currentAge;
+        private Gender _currentGender;
 
         private TextInput _nameBox = new TextInput(540, 51, 248, 112);
 
@@ -74,7 +116,7 @@ namespace VGP133_Final_Assignment.Scenes
         private ButtonCircle _ageButtonB = new ButtonCircle(61, 520, 740);
         private ButtonCircle _ageButtonC = new ButtonCircle(61, 670, 750);
 
-        
+
 
 
     }
