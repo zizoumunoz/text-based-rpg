@@ -4,6 +4,7 @@ using System.Text;
 using Raylib_cs;
 using VGP133_Final_Assignment.Components;
 using VGP133_Final_Assignment.Core;
+using VGP133_Final_Assignment.Game;
 
 namespace VGP133_Final_Assignment.Scenes
 {
@@ -110,26 +111,7 @@ namespace VGP133_Final_Assignment.Scenes
             buttonC.IsPressed = false;
         }
 
-        private enum HairColor
-        {
-            Pink,
-            Yellow,
-            Blue
-        }
 
-        private enum Gender
-        {
-            Masc,
-            Other,
-            Fem
-        }
-
-        private enum Age
-        {
-            Young,
-            Adult,
-            Old
-        }
 
         private HairColor _currentHairColor;
         private Age _currentAge;
