@@ -17,7 +17,6 @@ namespace VGP133_Final_Assignment.Scenes
         public override void Render()
         {
             Raylib.ClearBackground(Color.White);
-            _background.Render();
             Raylib.DrawText("Main Menu Scene", 200, 200, 20, Color.Black);
         }
 

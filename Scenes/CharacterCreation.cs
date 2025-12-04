@@ -17,6 +17,9 @@ namespace VGP133_Final_Assignment.Scenes
         public CharacterCreation(SceneHandler sceneHandler) : base(sceneHandler)
         {
             SceneName = "Character Creation";
+            _background =
+            new Sprite("Assets/character_creation/book_sketch.png", new System.Numerics.Vector2(0f, 0f), 5f);
+
         }
 
         public override void Update()

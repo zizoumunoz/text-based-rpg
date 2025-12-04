@@ -24,8 +24,7 @@ namespace VGP133_Final_Assignment.Scenes
 
         private string? _sceneName;
 
-        protected Sprite _background =
-            new Sprite("Assets/character_creation/book_sketch.png", new System.Numerics.Vector2(0f, 0f), 5f);
+        protected Sprite _background;
 
         protected Sprite Background { get => _background; set => _background = value; }
 
