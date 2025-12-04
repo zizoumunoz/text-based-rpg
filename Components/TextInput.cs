@@ -91,6 +91,6 @@ namespace VGP133_Final_Assignment.Components
         public int Height { get => _height; set => _height = value; }
         public int XCoord { get => _xCoord; set => _xCoord = value; }
         public int YCoord { get => _yCoord; set => _yCoord = value; }
-        public string? TextData { get => _textData; set => _textData = value; }
+        public string? TextData { get => _textData; set => _textData = value ?? "Unknown"; }
     }
 }
