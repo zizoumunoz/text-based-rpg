@@ -8,7 +8,7 @@ namespace VGP133_Final_Assignment.Components
 {
     public class ButtonRectangle
     {
-        public ButtonRectangle(int length, int height, int x, int y, bool render = false)
+        public ButtonRectangle(int length, int height, int x, int y, string texturePath, bool render = false)
         {
             _width = length;
             _height = height;
@@ -16,7 +16,7 @@ namespace VGP133_Final_Assignment.Components
             _y = y;
             _hitbox = new Rectangle(x, y, length, height);
             _texture =
-                new Sprite("Assets/character_creation/selected_left_heart.png", new Vector2(x, y), 5);
+                new Sprite(texturePath, new Vector2(x, y), 5);
 
             if (render)
             {
@@ -33,12 +33,23 @@ namespace VGP133_Final_Assignment.Components
             // check hover
             _isMouseHovering = Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), _hitbox);
 
+            if (_isMouseHovering)
+            {
+                _texture.IsVisible = true;
+            }
+            else
+            {
+                _texture.IsVisible = false;
+            }
+
             // toggle is clicked
             if (_isMouseHovering && Raylib.IsMouseButtonPressed(MouseButton.Left))
             {
                 Console.WriteLine("Clicked Button");
                 _isPressed = true;
             }
+
+            _texture.Update();
         }
 
         public void Render()
@@ -53,17 +64,15 @@ namespace VGP133_Final_Assignment.Components
         private Sprite _texture;
         private Color _color;
 
-
         private int _width;
         private int _height;
         private int _x;
         private int _y;
 
-
-
         public int Width { get => _width; set => _width = value; }
         public int Height { get => _height; set => _height = value; }
         public int X { get => _x; set => _x = value; }
         public int Y { get => _y; set => _y = value; }
+        public Sprite Texture { get => _texture; set => _texture = value; }
     }
 }
