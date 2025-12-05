@@ -281,7 +281,20 @@ namespace VGP133_Final_Assignment.Scenes
                     classString = "Jester";
                     break;
                 case Class.Wizard:
-                    classString = "Wizard";
+                    switch (_player.Gender)
+                    {
+                        case Gender.Masc:
+                            classString = "Wizard";
+                            break;
+                        case Gender.Other:
+                            classString = "Whiz";
+                            break;
+                        case Gender.Fem:
+                            classString = "Witch";
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 default:
                     classString = "Unknown";
