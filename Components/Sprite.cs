@@ -9,11 +9,13 @@ namespace VGP133_Final_Assignment.Components
     public class Sprite
     {
 
-        public Sprite(string filePath, Vector2 position, float scale = 1f)
+        public Sprite(string filePath, Vector2 position, float scale = 1f, bool isVisible = true)
         {
             _position = position;
             _scale = scale;
             _texture = Raylib.LoadTexture(filePath);
+            _isVisible = isVisible;
+
             // set filter for pixel art sharpness
             Raylib.SetTextureFilter(_texture, TextureFilter.Point);
 
