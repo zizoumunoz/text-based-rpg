@@ -17,23 +17,8 @@ namespace VGP133_Final_Assignment.Components
 
         public void Update()
         {
-            if (Raylib.CheckCollisionPointCircle(
-                    Raylib.GetMousePosition(),
-                    new Vector2(_xCoordinate, _yCoordinate),
-                    _radius))
-            {
-                _isMouseColliding = true;
-            }
-            else
-            {
-                _isMouseColliding = false;
-            }
-
-            if (_isMouseColliding && Raylib.IsMouseButtonPressed(MouseButton.Left))
-            {
-                Console.WriteLine("Clicked circle");
-                _isPressed = true;
-            }
+            _isMouseColliding = Raylib.CheckCollisionPointCircle(Raylib.GetMousePosition(), new Vector2(_xCoordinate, _yCoordinate), _radius);
+            _isPressed = (_isMouseColliding && Raylib.IsMouseButtonPressed(MouseButton.Left));
         }
 
         public void Render()
