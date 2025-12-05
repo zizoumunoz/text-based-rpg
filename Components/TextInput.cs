@@ -44,9 +44,7 @@ namespace VGP133_Final_Assignment.Components
                 }
                 else if (Raylib.IsKeyPressed(KeyboardKey.Backspace) && _textData.Length > 0)
                 {
-                    
                         _textData = _textData.Remove(_textData.Length - 1);
-                   
                 }
             }
             else
@@ -56,7 +54,6 @@ namespace VGP133_Final_Assignment.Components
             if (_isMouseOnText)
             {
                 _framesCounter++;
-
             }
             else { _framesCounter = 0; }
         }
