@@ -19,7 +19,6 @@ namespace VGP133_Final_Assignment.Components
             // set filter for pixel art sharpness
             Raylib.SetTextureFilter(_texture, TextureFilter.Point);
 
-
         }
 
         public void Render()
