@@ -75,6 +75,8 @@ namespace VGP133_Final_Assignment.Scenes
             }
 
             ResetButtonGroup(_ageButtonA, _ageButtonB, _ageButtonC);
+
+            UpdateSelects();
         }
 
         public override void Render()
@@ -88,6 +90,10 @@ namespace VGP133_Final_Assignment.Scenes
             RenderButtonGroup(_genderButtonA, _genderButtonB, _genderButtonC);
             RenderButtonGroup(_ageButtonA, _ageButtonB, _ageButtonC);
 
+            _uiHairSelect.Render();
+            _uiGenderSelect.Render();
+            _uiAgeSelect.Render();
+
             Raylib.DrawText("Character Creation Scene", 0, 0, 20, Color.Black);
             Raylib.DrawText($"Current hair: {(int)_currentHairColor}", 0, 20, 20, Color.Black);
             Raylib.DrawText($"Current gender: {(int)_currentGender}", 0, 40, 20, Color.Black);
@@ -95,6 +101,55 @@ namespace VGP133_Final_Assignment.Scenes
 
             // _player.Render();
         }
+
+        private void UpdateSelects()
+        {
+            switch (_currentHairColor)
+            {
+                case HairColor.Pink:
+                    _uiHairSelect.Position = _hairA;
+                    break;
+                case HairColor.Yellow:
+                    _uiHairSelect.Position = _hairB;
+                    break;
+                case HairColor.Blue:
+                    _uiHairSelect.Position = _hairC;
+                    break;
+                default:
+                    break;
+            }
+
+            switch (_currentGender)
+            {
+                case Gender.Masc:
+                    _uiGenderSelect.Position = _genderA;
+                    break;
+                case Gender.Other:
+                    _uiGenderSelect.Position = _genderB;
+                    break;
+                case Gender.Fem:
+                    _uiGenderSelect.Position = _genderC;
+                    break;
+                default:
+                    break;
+            }
+
+            switch (_currentAge)
+            {
+                case Age.Young:
+                    _uiAgeSelect.Position = _ageA;
+                    break;
+                case Age.Adult:
+                    _uiAgeSelect.Position = _ageB;
+                    break;
+                case Age.Old:
+                    _uiAgeSelect.Position = _ageC;
+                    break;
+                default:
+                    break;
+            }
+        }
+
 
         private void RenderButtonGroup(ButtonCircle buttonA, ButtonCircle buttonB, ButtonCircle buttonC)
         {
@@ -117,14 +172,21 @@ namespace VGP133_Final_Assignment.Scenes
             buttonC.IsPressed = false;
         }
 
-        private HairColor _currentHairColor;
-        private Age _currentAge;
-        private Gender _currentGender;
+        private HairColor _currentHairColor = 0;
+        private Age _currentAge = 0;
+        private Gender _currentGender = 0;
+
         private const int _uiScale = 5;
 
         private Character _player = new Character(HairColor.Blue, Gender.Other, Age.Young, Class.Jester);
 
-
+        // Sprites
+        private Sprite _uiHairSelect =
+            new Sprite("Assets/character_creation/selected_circle.png", new Vector2(0 * _uiScale, 0 * _uiScale), _uiScale);
+        private Sprite _uiGenderSelect =
+            new Sprite("Assets/character_creation/selected_circle.png", new Vector2(0 * _uiScale, 0 * _uiScale), _uiScale);
+        private Sprite _uiAgeSelect =
+            new Sprite("Assets/character_creation/selected_circle.png", new Vector2(0 * _uiScale, 0 * _uiScale), _uiScale);
 
         private TextInput _nameBox = new TextInput(540, 51, 248, 112);
 
@@ -139,5 +201,18 @@ namespace VGP133_Final_Assignment.Scenes
         private ButtonCircle _ageButtonA = new ButtonCircle(61, 370, 750);
         private ButtonCircle _ageButtonB = new ButtonCircle(61, 520, 740);
         private ButtonCircle _ageButtonC = new ButtonCircle(61, 670, 750);
+
+        // Locations for selections
+        private Vector2 _hairA = new Vector2(61 * _uiScale, 57 * _uiScale);
+        private Vector2 _hairB = new Vector2(91 * _uiScale, 55 * _uiScale);
+        private Vector2 _hairC = new Vector2(121 * _uiScale, 57 * _uiScale);
+
+        private Vector2 _genderA = new Vector2(61 * _uiScale, 97 * _uiScale);
+        private Vector2 _genderB = new Vector2(91 * _uiScale, 95 * _uiScale);
+        private Vector2 _genderC = new Vector2(121 * _uiScale, 97 * _uiScale);
+
+        private Vector2 _ageA = new Vector2(61 * _uiScale, 137 * _uiScale);
+        private Vector2 _ageB = new Vector2(91 * _uiScale, 135 * _uiScale);
+        private Vector2 _ageC = new Vector2(121 * _uiScale, 137 * _uiScale);
     }
 }
