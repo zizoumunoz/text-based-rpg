@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 using Raylib_cs;
 using VGP133_Final_Assignment.Components;
@@ -18,7 +19,7 @@ namespace VGP133_Final_Assignment.Scenes
         {
             SceneName = "Character Creation";
             _background =
-            new Sprite("Assets/character_creation/book_sketch.png", new System.Numerics.Vector2(0f, 0f), 5f);
+            new Sprite("Assets/character_creation/book.png", new System.Numerics.Vector2(0f, 0f), 5f);
 
         }
 
@@ -92,7 +93,7 @@ namespace VGP133_Final_Assignment.Scenes
             Raylib.DrawText($"Current gender: {(int)_currentGender}", 0, 40, 20, Color.Black);
             Raylib.DrawText($"Current age: {(int)_currentAge}", 0, 60, 20, Color.Black);
 
-            _player.Render();
+            // _player.Render();
         }
 
         private void RenderButtonGroup(ButtonCircle buttonA, ButtonCircle buttonB, ButtonCircle buttonC)
@@ -115,8 +116,6 @@ namespace VGP133_Final_Assignment.Scenes
             buttonB.IsPressed = false;
             buttonC.IsPressed = false;
         }
-
-
 
         private HairColor _currentHairColor;
         private Age _currentAge;
