@@ -13,9 +13,9 @@ namespace VGP133_Final_Assignment.Components
         {
             _position = position;
             _scale = scale;
-            _texture = Raylib.LoadTexture(filePath);
             _isVisible = isVisible;
-
+            _filePath = filePath;
+            _texture = Raylib.LoadTexture(_filePath);
             // set filter for pixel art sharpness
             Raylib.SetTextureFilter(_texture, TextureFilter.Point);
 
@@ -44,6 +44,7 @@ namespace VGP133_Final_Assignment.Components
             Raylib.UnloadTexture(_texture);
         }
 
+        private string _filePath;
         private Texture2D _texture;
         private Color _tint = Color.RayWhite;
 
@@ -55,5 +56,6 @@ namespace VGP133_Final_Assignment.Components
         public Vector2 Position { get => _position; set => _position = value; }
         public float Scale { get => _scale; set => _scale = value; }
         public bool IsVisible { get => _isVisible; set => _isVisible = value; }
+        public string FilePath { get => _filePath; set => _filePath = value; }
     }
 }
