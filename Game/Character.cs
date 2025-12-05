@@ -20,12 +20,6 @@ namespace VGP133_Final_Assignment.Game
             _playerBody = new Sprite(temp, _spriteLocation, 5);
 
             // get hair sprite from color and gender
-
-        }
-
-        public void Update()
-        {
-            string temp = "";
             switch (_hairColor)
             {
                 case HairColor.Pink:
@@ -133,6 +127,11 @@ namespace VGP133_Final_Assignment.Game
                 default:
                     break;
             }
+        }
+
+        public void Update()
+        {
+            
         }
 
         public void Render()
