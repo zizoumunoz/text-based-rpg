@@ -120,8 +120,11 @@ namespace VGP133_Final_Assignment.Scenes
         private HairColor _currentHairColor;
         private Age _currentAge;
         private Gender _currentGender;
+        private const int _uiScale = 5;
 
         private Character _player = new Character(HairColor.Blue, Gender.Other, Age.Young, Class.Jester);
+
+
 
         private TextInput _nameBox = new TextInput(540, 51, 248, 112);
 
@@ -136,9 +139,5 @@ namespace VGP133_Final_Assignment.Scenes
         private ButtonCircle _ageButtonA = new ButtonCircle(61, 370, 750);
         private ButtonCircle _ageButtonB = new ButtonCircle(61, 520, 740);
         private ButtonCircle _ageButtonC = new ButtonCircle(61, 670, 750);
-
-
-
-
     }
 }

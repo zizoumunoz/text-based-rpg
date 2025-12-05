@@ -26,7 +26,6 @@ namespace VGP133_Final_Assignment.Components
         }
 
         public void Update()
-
         {
 
         }
