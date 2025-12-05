@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Raylib_cs;
 using VGP133_Final_Assignment.Components;
@@ -21,6 +22,12 @@ namespace VGP133_Final_Assignment.Scenes
             _background =
             new Sprite("Assets/character_creation/book.png", new System.Numerics.Vector2(0f, 0f), 5f);
 
+            string temp = "Assets/character_creation/selected_left_heart.png";
+            _classSelectLeft =
+                new ButtonRectangle(18 * _uiScale, 22 * _uiScale, 226 * _uiScale, 12 * _uiScale, temp, true);
+            temp = "Assets/character_creation/selected_right_heart.png";
+            _classSelectRight =
+                new ButtonRectangle(18 * _uiScale, 22 * _uiScale, 323 * _uiScale, 12 * _uiScale, temp, true);
         }
 
         public override void Update()
@@ -76,6 +83,9 @@ namespace VGP133_Final_Assignment.Scenes
 
             ResetButtonGroup(_ageButtonA, _ageButtonB, _ageButtonC);
 
+            _classSelectLeft.Update();
+            _classSelectRight.Update();
+
             UpdateSelects();
         }
 
@@ -93,6 +103,10 @@ namespace VGP133_Final_Assignment.Scenes
             _uiHairSelect.Render();
             _uiGenderSelect.Render();
             _uiAgeSelect.Render();
+
+            _classSelectLeft.Render();
+            _classSelectRight.Render();
+
 
             Raylib.DrawText("Character Creation Scene", 0, 0, 20, Color.Black);
             Raylib.DrawText($"Current hair: {(int)_currentHairColor}", 0, 20, 20, Color.Black);
@@ -149,7 +163,6 @@ namespace VGP133_Final_Assignment.Scenes
                     break;
             }
         }
-
 
         private void RenderButtonGroup(ButtonCircle buttonA, ButtonCircle buttonB, ButtonCircle buttonC)
         {
@@ -214,5 +227,9 @@ namespace VGP133_Final_Assignment.Scenes
         private Vector2 _ageA = new Vector2(61 * _uiScale, 137 * _uiScale);
         private Vector2 _ageB = new Vector2(91 * _uiScale, 135 * _uiScale);
         private Vector2 _ageC = new Vector2(121 * _uiScale, 137 * _uiScale);
+
+        // Hitboxes
+        private ButtonRectangle _classSelectLeft;
+        private ButtonRectangle _classSelectRight;
     }
 }
