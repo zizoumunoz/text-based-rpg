@@ -16,6 +16,10 @@ namespace VGP133_Final_Assignment.Game
             _age = age;
             _playerClass = playerClass;
 
+            string temp = "Assets/character_creation/character_body.png";
+            _playerBody = new Sprite(temp, _spriteLocation, 5);
+
+            // get hair sprite from color and gender
             switch (_hairColor)
             {
                 case HairColor.Pink:
@@ -72,6 +76,48 @@ namespace VGP133_Final_Assignment.Game
                 default:
                     break;
             }
+
+            switch (_playerClass)
+            {
+                case Class.Knight:
+                    temp = "Assets/character_creation/hat_knight.png";
+                    _playerHat = new Sprite(temp, _spriteLocation, 5);
+                    temp = "Assets/character_creation/clothes_knight.png";
+                    _playerHat = new Sprite(temp, _spriteLocation, 5);
+                    break;
+                case Class.Jester:
+                    temp = "Assets/character_creation/hat_jester.png";
+                    _playerHat = new Sprite(temp, _spriteLocation, 5);
+                    temp = "Assets/character_creation/clothes_default.png";
+                    _playerHat = new Sprite(temp, _spriteLocation, 5);
+                    break;
+                case Class.Wizard:
+                    temp = "Assets/character_creation/hat_wizard.png";
+                    _playerHat = new Sprite(temp, _spriteLocation, 5);
+                    temp = "Assets/character_creation/clothes_default.png";
+                    _playerHat = new Sprite(temp, _spriteLocation, 5);
+                    break;
+                default:
+                    break;
+            }
+
+            switch (_age)
+            {
+                case Age.Young:
+                    temp = "Assets/character_creation/face_young.png";
+                    _playerFace = new Sprite(temp, _spriteLocation, 5);
+                    break;
+                case Age.Adult:
+                    temp = "Assets/character_creation/face_adult.png";
+                    _playerFace = new Sprite(temp, _spriteLocation, 5);
+                    break;
+                case Age.Old:
+                    temp = "Assets/character_creation/face_old.png";
+                    _playerFace = new Sprite(temp, _spriteLocation, 5);
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void Update()
@@ -84,8 +130,11 @@ namespace VGP133_Final_Assignment.Game
             _playerHair.Render();
         }
 
+        private Vector2 _spriteLocation;
+
         private Sprite _playerBody;
         private Sprite _playerHair;
+        private Sprite _playerCloak;
         private Sprite _playerHat;
         private Sprite _playerFace;
 

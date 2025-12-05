@@ -28,7 +28,7 @@ namespace VGP133_Final_Assignment.Scenes
             temp = "Assets/character_creation/selected_right_heart.png";
             _classSelectRight =
                 new ButtonRectangle(18 * _uiScale, 22 * _uiScale, 323 * _uiScale, 12 * _uiScale, temp);
-        }
+        } 
 
         public override void Update()
         {
