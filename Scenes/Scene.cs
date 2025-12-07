@@ -16,10 +16,6 @@ namespace VGP133_Final_Assignment.Scenes
 
         private string? _sceneName;
 
-        protected Sprite _background;
-
-        protected Sprite Background { get => _background; set => _background = value; }
-
         protected string? SceneName { get => _sceneName; set => _sceneName = value; }
         protected SceneHandler Handler { get; }
     }
