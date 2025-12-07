@@ -20,7 +20,7 @@ namespace VGP133_Final_Assignment.Scenes
         {
             SceneName = "Character Creation";
             _background =
-                new Sprite("book", new System.Numerics.Vector2(0f, 0f), 5f);
+                new Sprite("book", s_origin, 5f);
 
             _classSelectLeft =
                 new ButtonRectangle(18 * _uiScale, 22 * _uiScale, 226 * _uiScale, 12 * _uiScale, "selected_left_heart");
@@ -316,11 +316,11 @@ namespace VGP133_Final_Assignment.Scenes
         // Sprites
         private Sprite _background;
         private Sprite _uiHairSelect =
-            new Sprite("selected_circle", new Vector2(0 * _uiScale, 0 * _uiScale), _uiScale);
+            new Sprite("selected_circle", s_origin, _uiScale);
         private Sprite _uiGenderSelect =
-            new Sprite("selected_circle", new Vector2(0 * _uiScale, 0 * _uiScale), _uiScale);
+            new Sprite("selected_circle", s_origin, _uiScale);
         private Sprite _uiAgeSelect =
-            new Sprite("selected_circle", new Vector2(0 * _uiScale, 0 * _uiScale), _uiScale);
+            new Sprite("selected_circle", s_origin, _uiScale);
 
         private TextInput _nameBox = new TextInput(540, 51, 248, 112);
 
