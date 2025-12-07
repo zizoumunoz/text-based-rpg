@@ -33,13 +33,13 @@ namespace VGP133_Final_Assignment.Scenes
         // Sprites
 
         Sprite _background =
-            new Sprite("world_background", new Vector2(0, 0), _uiScale);
+            new Sprite("world_background", s_origin, _uiScale);
         Sprite _borders =
-            new Sprite("world_borders", new Vector2(0, 0), _uiScale);
+            new Sprite("world_borders", s_origin, _uiScale);
         Sprite _buttons =
-            new Sprite("world_buttons", new Vector2(0, 0), _uiScale);
+            new Sprite("world_buttons", s_origin, _uiScale);
         Sprite _statusWindows =
-            new Sprite("world_status_window", new Vector2(0, 0), _uiScale);
+            new Sprite("world_status_window", s_origin, _uiScale);
 
     }
 }
