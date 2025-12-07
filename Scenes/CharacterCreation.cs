@@ -106,9 +106,6 @@ namespace VGP133_Final_Assignment.Scenes
             UpdateCurrentClass();
 
             UpdateSelects();
-
-
-
         }
 
         public override void Render()
@@ -326,17 +323,17 @@ namespace VGP133_Final_Assignment.Scenes
 
         private TextInput _nameBox = new TextInput(540, 51, 248, 112);
 
-        private ButtonCircle _hairButtonA = new ButtonCircle(61, 370, 350);
-        private ButtonCircle _hairButtonB = new ButtonCircle(61, 520, 340);
-        private ButtonCircle _hairButtonC = new ButtonCircle(61, 670, 350);
+        private ButtonCircle _hairButtonA = new ButtonCircle(61, 74 * _uiScale, 70 * _uiScale);
+        private ButtonCircle _hairButtonB = new ButtonCircle(61, 104 * _uiScale, 68 * _uiScale);
+        private ButtonCircle _hairButtonC = new ButtonCircle(61, 134 * _uiScale, 70 * _uiScale);
 
-        private ButtonCircle _genderButtonA = new ButtonCircle(61, 370, 550);
-        private ButtonCircle _genderButtonB = new ButtonCircle(61, 520, 540);
-        private ButtonCircle _genderButtonC = new ButtonCircle(61, 670, 550);
+        private ButtonCircle _genderButtonA = new ButtonCircle(61, 74 * _uiScale, 550);
+        private ButtonCircle _genderButtonB = new ButtonCircle(61, 104 * _uiScale, 540);
+        private ButtonCircle _genderButtonC = new ButtonCircle(61, 134 * _uiScale, 550);
 
-        private ButtonCircle _ageButtonA = new ButtonCircle(61, 370, 750);
-        private ButtonCircle _ageButtonB = new ButtonCircle(61, 520, 740);
-        private ButtonCircle _ageButtonC = new ButtonCircle(61, 670, 750);
+        private ButtonCircle _ageButtonA = new ButtonCircle(61, 74 * _uiScale, 750);
+        private ButtonCircle _ageButtonB = new ButtonCircle(61, 104 * _uiScale, 740);
+        private ButtonCircle _ageButtonC = new ButtonCircle(61, 134 * _uiScale, 750);
 
         // Locations for selections
         private Vector2 _hairA = new Vector2(61 * _uiScale, 57 * _uiScale);

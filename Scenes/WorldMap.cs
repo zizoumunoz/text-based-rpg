@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using VGP133_Final_Assignment.Core;
+﻿using VGP133_Final_Assignment.Core;
 
 namespace VGP133_Final_Assignment.Scenes
 {
@@ -18,7 +15,7 @@ namespace VGP133_Final_Assignment.Scenes
 
         public override void Update()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

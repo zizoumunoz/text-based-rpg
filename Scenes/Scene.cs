@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Mail;
-using System.Text;
-using VGP133_Final_Assignment.Components;
+﻿using VGP133_Final_Assignment.Components;
 using VGP133_Final_Assignment.Core;
 using VGP133_Final_Assignment.Interfaces;
 
