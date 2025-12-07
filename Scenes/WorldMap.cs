@@ -17,7 +17,7 @@ namespace VGP133_Final_Assignment.Scenes
 
         public override void Update()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
