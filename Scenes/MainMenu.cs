@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using VGP133_Final_Assignment.Core;
+﻿using VGP133_Final_Assignment.Core;
 using Raylib_cs;
 using VGP133_Final_Assignment.Components;
 
