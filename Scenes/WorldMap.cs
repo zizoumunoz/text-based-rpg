@@ -11,6 +11,11 @@ namespace VGP133_Final_Assignment.Scenes
         {
         }
 
+        public override void Update()
+        {
+
+        }
+
         public override void Render()
         {
             Raylib.ClearBackground(Color.RayWhite);
@@ -21,11 +26,6 @@ namespace VGP133_Final_Assignment.Scenes
             _statusWindows.Render();
 
             Raylib.DrawText("WorldMap Scene", 0, 0, 20, Color.RayWhite);
-        }
-
-        public override void Update()
-        {
-
         }
 
         private const int _uiScale = 5;
