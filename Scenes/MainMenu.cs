@@ -20,7 +20,6 @@ namespace VGP133_Final_Assignment.Scenes
             Raylib.DrawText("Main Menu Scene", 200, 200, 20, Color.Black);
         }
 
-
         public override void Update()
         {
             KeyboardKey key = (KeyboardKey)Raylib.GetKeyPressed();
