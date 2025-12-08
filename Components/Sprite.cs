@@ -15,6 +15,7 @@ namespace VGP133_Final_Assignment.Components
             _position = position;
             _scale = scale;
             _isVisible = isVisible;
+            _offset = new Vector2(0, 0);
             _texture = AssetManager.GetTexture(textureName);
             // set filter for pixel art sharpness
             Raylib.SetTextureFilter(_texture, TextureFilter.Point);
@@ -24,7 +25,7 @@ namespace VGP133_Final_Assignment.Components
         // IDrawable inherit
         public void Render()
         {
-            Raylib.DrawTextureEx(_texture, _position, 0f, _scale, _tint);
+            Raylib.DrawTextureEx(_texture, (_position + _offset) * _scale, 0f, _scale, _tint);
         }
 
         // IDrawable inherit
@@ -45,11 +46,13 @@ namespace VGP133_Final_Assignment.Components
         private Color _tint = Color.RayWhite;
 
         private Vector2 _position;
+        private Vector2 _offset;
         private float _scale;
         private bool _isVisible;
 
         public Vector2 Position { get => _position; set => _position = value; }
         public float Scale { get => _scale; set => _scale = value; }
         public bool IsVisible { get => _isVisible; set => _isVisible = value; }
+        public Vector2 Offset { get => _offset; set => _offset = value; }
     }
 }
