@@ -2,7 +2,9 @@
 using Raylib_cs;
 using VGP133_Final_Assignment.Core;
 using VGP133_Final_Assignment.Components;
-using static VGP133_Final_Assignment.Core.ResolutionManager;    // for UIScale
+using static VGP133_Final_Assignment.Core.ResolutionManager;
+using VGP133_Final_Assignment.Game;
+using System.Text.Json;    // for UIScale
 
 
 namespace VGP133_Final_Assignment.Scenes
@@ -14,6 +16,14 @@ namespace VGP133_Final_Assignment.Scenes
             _borders.Offset = new Vector2(24, 16);
             _buttons.Offset = new Vector2(6, 145);
             _statusWindows.Offset = new Vector2(32, 137);
+
+            // get player from file
+            string loadedJson = File.ReadAllText("player.json");
+            _player = JsonSerializer.Deserialize<Character>(loadedJson);
+
+            _player.SpriteLocation = new Vector2(164, 146);
+            _player.HasOutline = true;
+            _player.UpdateSprite();
         }
 
         public override void Update()
@@ -23,7 +33,7 @@ namespace VGP133_Final_Assignment.Scenes
 
         public override void Render()
         {
-            Raylib.ClearBackground(Color.RayWhite);
+            Raylib.ClearBackground(Color.Black);
 
             _background.Render();
             _borders.Render();
@@ -31,12 +41,16 @@ namespace VGP133_Final_Assignment.Scenes
             _statusWindows.Render();
 
             Raylib.DrawText("WorldMap Scene", 0, 0, 20, Color.RayWhite);
+            Raylib.DrawText($"{_player.CurrentHp}", 45 * UIScale, 192 * UIScale, 10 * UIScale, new Color(178, 139, 120));
+            Raylib.DrawText($"{_player.Atk}", 87 * UIScale, 192 * UIScale, 10 * UIScale, new Color(178, 139, 120));
+            Raylib.DrawText($"{_player.Def}", 128 * UIScale, 192 * UIScale, 10 * UIScale, new Color(178, 139, 120));
+
+            _player.Render();
         }
 
-        private const int _uiScale = 5;
+        private Character? _player;
 
         // Sprites
-
         Sprite _background =
             new Sprite("world_background", s_origin);
         Sprite _borders =
