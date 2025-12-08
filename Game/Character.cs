@@ -24,7 +24,6 @@ namespace VGP133_Final_Assignment.Game
             _atk = 10;
             _def = 5;
             _currentHp = 150;
-
         }
 
         public void Update()
@@ -58,6 +57,8 @@ namespace VGP133_Final_Assignment.Game
 
         public void UpdateSprite()
         {
+            _playerBody = new Sprite("character_body", _spriteLocation);
+
             switch (_hairColor)
             {
                 case HairColor.Pink:
@@ -151,13 +152,28 @@ namespace VGP133_Final_Assignment.Game
 
         public void Render()
         {
-            _playerCloak.Render();
-            _playerBody.Render();
-            _playerFace.Render();
-            _playerHair.Render();
-            _playerHat.Render();
+            if (_hasOutline)
+            {
+                _playerCloak.RenderWithOutline();
+                _playerBody.RenderWithOutline();
+                _playerFace.RenderWithOutline();
+                _playerHair.RenderWithOutline();
+                _playerHat.RenderWithOutline();
+                _playerCloak.Render();
+                _playerBody.Render();
+                _playerFace.Render();
+                _playerHair.Render();
+                _playerHat.Render();
 
-
+            }
+            else
+            {
+                _playerCloak.Render();
+                _playerBody.Render();
+                _playerFace.Render();
+                _playerHair.Render();
+                _playerHat.Render();
+            }
         }
 
         // ===== Player Stats
@@ -188,10 +204,12 @@ namespace VGP133_Final_Assignment.Game
         private static Vector2 _faceAdultOffest = new Vector2(16, 17);
         private static Vector2 _faceOldOffest = new Vector2(11, 18);
 
+        // Properties
         private HairColor _hairColor;
         private Gender _gender;
         private Age _age;
         private Class _playerClass;
+        private bool _hasOutline;
 
         public HairColor HairColor { get => _hairColor; set => _hairColor = value; }
         public Gender Gender { get => _gender; set => _gender = value; }
@@ -204,5 +222,6 @@ namespace VGP133_Final_Assignment.Game
         public int Def { get => _def; set => _def = value; }
         public int Level { get => _level; set => _level = value; }
         public int Xp { get => _xp; set => _xp = value; }
+        public bool HasOutline { get => _hasOutline; set => _hasOutline = value; }
     }
 }

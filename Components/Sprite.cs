@@ -16,13 +16,24 @@ namespace VGP133_Final_Assignment.Components
             _texture = AssetManager.GetTexture(textureName);
             // set filter for pixel art sharpness
             Raylib.SetTextureFilter(_texture, TextureFilter.Point);
-
         }
 
         // IDrawable inherit
         public void Render()
         {
             Raylib.DrawTextureEx(_texture, (_position + _offset) * UIScale, 0f, UIScale, _tint);
+        }
+
+        public void RenderWithOutline()
+        {
+            // Draw scaled up white version first for outline
+            Raylib.DrawTextureEx(
+                _texture,
+                (_position + _offset) * UIScale,
+                0f,
+                UIScale + _outlineScale,
+                Color.Black
+                );
         }
 
         // IDrawable inherit
@@ -39,6 +50,8 @@ namespace VGP133_Final_Assignment.Components
             }
         }
 
+        private const float _outlineScale = 0.2f;
+
         private Texture2D _texture;
         private Color _tint = Color.RayWhite;
 
@@ -46,10 +59,12 @@ namespace VGP133_Final_Assignment.Components
         private Vector2 _offset;
         private float _scale;
         private bool _isVisible;
+        private bool _hasOutline;
 
         public Vector2 Position { get => _position; set => _position = value; }
         public float Scale { get => _scale; set => _scale = value; }
         public bool IsVisible { get => _isVisible; set => _isVisible = value; }
         public Vector2 Offset { get => _offset; set => _offset = value; }
+        public bool HasOutline { get => _hasOutline; set => _hasOutline = value; }
     }
 }
