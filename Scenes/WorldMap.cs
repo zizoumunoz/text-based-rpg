@@ -24,6 +24,9 @@ namespace VGP133_Final_Assignment.Scenes
             _player.SpriteLocation = new Vector2(164, 146);
             _player.HasOutline = true;
             _player.UpdateSprite();
+
+            _monsters = new List<Monster>();
+            _forest = new Forest(new Vector2(235, 51), _monsters);
         }
 
         public override void Update()
@@ -44,6 +47,8 @@ namespace VGP133_Final_Assignment.Scenes
             Raylib.DrawText($"{_player.CurrentHp}", 45 * UIScale, 192 * UIScale, 10 * UIScale, new Color(178, 139, 120));
             Raylib.DrawText($"{_player.Atk}", 87 * UIScale, 192 * UIScale, 10 * UIScale, new Color(178, 139, 120));
             Raylib.DrawText($"{_player.Def}", 128 * UIScale, 192 * UIScale, 10 * UIScale, new Color(178, 139, 120));
+
+            _forest.Render();
 
             _player.Render();
         }
@@ -68,5 +73,10 @@ namespace VGP133_Final_Assignment.Scenes
         Sprite _statusWindows =
             new Sprite("world_status_window", s_origin);
 
+        // Map Data
+        Forest _forest;
+
+
+        List<Monster> _monsters;
     }
 }

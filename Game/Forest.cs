@@ -9,7 +9,7 @@ namespace VGP133_Final_Assignment.Game
             base(location, monsterPool)
         {
             _name = "Forest";
-            _location = new Vector2(0, 0);
+            _location = location;
             _sprite = new Sprite("terrain_forest", _location);
         }
         public override void Update()

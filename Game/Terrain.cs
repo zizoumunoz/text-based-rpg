@@ -19,7 +19,7 @@ namespace VGP133_Final_Assignment.Game
         protected string _name = "";
         protected Vector2 _location;
         protected Sprite? _sprite;
-        protected List<Monster>? _monsterPool;
+        protected List<Monster> _monsterPool;
 
     }
 }
