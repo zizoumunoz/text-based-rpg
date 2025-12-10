@@ -2,9 +2,9 @@
 using Raylib_cs;
 using VGP133_Final_Assignment.Core;
 using VGP133_Final_Assignment.Components;
-using static VGP133_Final_Assignment.Core.ResolutionManager;
+using static VGP133_Final_Assignment.Core.ResolutionManager; // for UIScale
 using VGP133_Final_Assignment.Game;
-using System.Text.Json;    // for UIScale
+using System.Text.Json;
 
 
 namespace VGP133_Final_Assignment.Scenes
@@ -48,7 +48,15 @@ namespace VGP133_Final_Assignment.Scenes
             _player.Render();
         }
 
+        private void DisplayCurrentLocation()
+        {
+
+        }
+
         private Character? _player;
+
+        // Game Data
+        
 
         // Sprites
         Sprite _background =

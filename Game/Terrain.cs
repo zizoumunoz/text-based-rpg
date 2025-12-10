@@ -6,6 +6,12 @@ namespace VGP133_Final_Assignment.Game
 {
     public abstract class Terrain : IDrawable
     {
+        protected Terrain( Vector2 location, List<Monster>? monsterPool)
+        {
+            _location = location;
+            _monsterPool = monsterPool;
+        }
+
         public abstract void Render();
 
         public abstract void Update();
