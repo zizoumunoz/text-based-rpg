@@ -10,7 +10,7 @@ namespace VGP133_Final_Assignment.Game
         {
             _name = "Ocean";
             _location = location;
-            _sprite = new Sprite("terrain_mountain", _location);
+            _sprite = new Sprite("terrain_mountains", _location);
         }
         public override void Update()
         {
