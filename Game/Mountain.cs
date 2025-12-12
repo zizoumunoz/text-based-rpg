@@ -11,6 +11,7 @@ namespace VGP133_Final_Assignment.Game
             _name = "Mountain";
             _location = location;
             _sprite = new Sprite("terrain_mountains", _location);
+            _rewardChance = 0.5f;
         }
         public override void Update()
         {
