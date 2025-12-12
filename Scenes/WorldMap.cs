@@ -81,7 +81,6 @@ namespace VGP133_Final_Assignment.Scenes
         private void UpdateCurrentTile()
         {
             _currentTile = _map.MapTiles[(int)_map.PlayerTileLocation.Y, (int)_map.PlayerTileLocation.X];
-            Console.WriteLine(_currentTile.Name);
         }
 
         private void RenderTerrainBackground()

@@ -82,7 +82,6 @@ namespace VGP133_Final_Assignment.Game
 
         public void MovePlayer(char direction)
         {
-            Console.WriteLine($"P pos{_playerTileLocation.X}, {_playerTileLocation.Y}");
             // Can't move to rows 0 and 4
             switch (direction)
             {
