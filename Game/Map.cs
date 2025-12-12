@@ -131,5 +131,8 @@ namespace VGP133_Final_Assignment.Game
 
         private Terrain[,] _mapTiles = new Terrain[5, 5];
         List<Monster> _monsters = new List<Monster>();
+
+        public Terrain[,] MapTiles { get => _mapTiles; set => _mapTiles = value; }
+        public Vector2 PlayerTileLocation { get => _playerTileLocation; set => _playerTileLocation = value; }
     }
 }
