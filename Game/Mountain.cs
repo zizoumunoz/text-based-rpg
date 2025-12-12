@@ -8,7 +8,7 @@ namespace VGP133_Final_Assignment.Game
         public Mountain(Vector2 location, List<Monster>? monsterPool) :
             base(location, monsterPool)
         {
-            _name = "Ocean";
+            _name = "Mountain";
             _location = location;
             _sprite = new Sprite("terrain_mountains", _location);
         }
