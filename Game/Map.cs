@@ -51,14 +51,14 @@ namespace VGP133_Final_Assignment.Game
             _mapTiles[3, 4] =
                 new Mountain(new Vector2(325, 111), _monsters);
 
-            _playerPixelLocation = _mapTiles[2, 0].Location;
+            _playerPixelLocation = _mapTiles[0, 2].Location;
             _playerTileLocation = new Vector2(2, 0);
 
             _playerSprite = new Text(
                 "x",
                 _playerPixelLocation,
                 20 * UIScale,
-                Color.Black
+                Color.Red
              );
         }
 
@@ -87,25 +87,25 @@ namespace VGP133_Final_Assignment.Game
             switch (direction)
             {
                 case 'N':
-                    if (_playerTileLocation.Y - 1 > 0)
+                    if (_playerTileLocation.Y - 1 >= 0)
                     {
                         _playerTileLocation.Y--;
                     }
                     break;
                 case 'S':
-                    if (_playerTileLocation.Y + 1 < 4)
+                    if (_playerTileLocation.Y + 1 <= 4)
                     {
                         _playerTileLocation.Y++;
                     }
                     break;
                 case 'E':
-                    if (_playerTileLocation.X + 1 < 4)
+                    if (_playerTileLocation.X + 1 <= 4)
                     {
                         _playerTileLocation.X++;
                     }
                     break;
                 case 'W':
-                    if (_playerTileLocation.X - 1 > 0)
+                    if (_playerTileLocation.X - 1 >= 0)
                     {
                         _playerTileLocation.X--;
                     }
@@ -117,7 +117,7 @@ namespace VGP133_Final_Assignment.Game
             _playerSprite.Position =
                 _mapTiles[(int)_playerTileLocation.Y, (int)_playerTileLocation.X].Location;
 
-            
+
         }
 
         private void RenderPlayer()
@@ -128,7 +128,7 @@ namespace VGP133_Final_Assignment.Game
         Text _playerSprite;
         private Vector2 _playerPixelLocation;
         private Vector2 _playerTileLocation;
-        
+
         private Terrain[,] _mapTiles = new Terrain[5, 5];
         List<Monster> _monsters = new List<Monster>();
     }

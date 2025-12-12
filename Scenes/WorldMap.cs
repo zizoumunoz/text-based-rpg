@@ -28,15 +28,32 @@ namespace VGP133_Final_Assignment.Scenes
 
         public override void Update()
         {
-
+            KeyboardKey key = (KeyboardKey)Raylib.GetKeyPressed();
+            switch (key)
+            {
+                case KeyboardKey.Up:
+                    _map.MovePlayer('N');
+                    break;
+                case KeyboardKey.Down:
+                    _map.MovePlayer('S');
+                    break;
+                case KeyboardKey.Left:
+                    _map.MovePlayer('W');
+                    break;
+                case KeyboardKey.Right:
+                    _map.MovePlayer('E');
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override void Render()
         {
             Raylib.ClearBackground(Color.Black);
 
-            _map.Render();
 
+            _map.Render();
             _background.Render();
             _borders.Render();
             _buttons.Render();
