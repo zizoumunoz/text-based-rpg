@@ -1,5 +1,8 @@
-﻿using System.Numerics;
+﻿using Raylib_cs;
+using System.Numerics;
+using VGP133_Final_Assignment.Components;
 using VGP133_Final_Assignment.Interfaces;
+using static VGP133_Final_Assignment.Core.ResolutionManager;
 
 namespace VGP133_Final_Assignment.Game
 {
@@ -48,23 +51,16 @@ namespace VGP133_Final_Assignment.Game
             _mapTiles[3, 4] =
                 new Mountain(new Vector2(325, 111), _monsters);
 
-            //_mapTiles[4, 0] =
-            //    new Forest(new Vector2(205, 81), _monsters);
-            //_mapTiles[4, 1] =
-            //    new Forest(new Vector2(235, 81), _monsters);
-            //_mapTiles[4, 2] =
-            //    new Forest(new Vector2(265, 81), _monsters);
-            //_mapTiles[4, 3] =
-            //    new Mountain(new Vector2(295, 81), _monsters);
-            //_mapTiles[4, 4] =
-            //    new Mountain(new Vector2(325, 81), _monsters);
+            _playerPixelLocation = _mapTiles[2, 0].Location;
+            _playerTileLocation = new Vector2(2, 0);
 
-
+            _playerSprite = new Text(
+                "x",
+                _playerPixelLocation,
+                20 * UIScale,
+                Color.Black
+             );
         }
-
-        private Vector2 _playerLocation;
-        private Terrain[,] _mapTiles = new Terrain[5, 5];
-        List<Monster> _monsters = new List<Monster>();
 
         public void Update()
         {
@@ -80,7 +76,60 @@ namespace VGP133_Final_Assignment.Game
                 _mapTiles[2, column].Render();
                 _mapTiles[3, column].Render();
                 _mapTiles[4, column].Render();
+                RenderPlayer();
             }
         }
+
+        public void MovePlayer(char direction)
+        {
+            Console.WriteLine($"P pos{_playerTileLocation.X}, {_playerTileLocation.Y}");
+            // Can't move to rows 0 and 4
+            switch (direction)
+            {
+                case 'N':
+                    if (_playerTileLocation.Y - 1 > 0)
+                    {
+                        _playerTileLocation.Y--;
+                    }
+                    break;
+                case 'S':
+                    if (_playerTileLocation.Y + 1 < 4)
+                    {
+                        _playerTileLocation.Y++;
+                    }
+                    break;
+                case 'E':
+                    if (_playerTileLocation.X + 1 < 4)
+                    {
+                        _playerTileLocation.X++;
+                    }
+                    break;
+                case 'W':
+                    if (_playerTileLocation.X - 1 > 0)
+                    {
+                        _playerTileLocation.X--;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            _playerSprite.Position =
+                _mapTiles[(int)_playerTileLocation.Y, (int)_playerTileLocation.X].Location;
+
+            
+        }
+
+        private void RenderPlayer()
+        {
+            _playerSprite.Render();
+        }
+
+        Text _playerSprite;
+        private Vector2 _playerPixelLocation;
+        private Vector2 _playerTileLocation;
+        
+        private Terrain[,] _mapTiles = new Terrain[5, 5];
+        List<Monster> _monsters = new List<Monster>();
     }
 }
