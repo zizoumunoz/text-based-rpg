@@ -13,6 +13,7 @@ namespace VGP133_Final_Assignment.Components
             _height = height * UIScale;
             _x = x * UIScale;
             _y = y * UIScale;
+            _posRaw = new Vector2(x, y);
             _hitbox = new Rectangle(_x, _y, _width, _height);
             _texture =
                 new Sprite(texturePath, new Vector2(x, y));
@@ -56,11 +57,13 @@ namespace VGP133_Final_Assignment.Components
         private Sprite _texture;
         private Color _color;
 
+        private Vector2 _posRaw;
         private int _width;
         private int _height;
         private int _x;
         private int _y;
 
+        public Vector2 PositionRaw { get => _posRaw; set => _posRaw = value; }
         public int Width { get => _width; set => _width = value; }
         public int Height { get => _height; set => _height = value; }
         public int X { get => _x; set => _x = value; }
