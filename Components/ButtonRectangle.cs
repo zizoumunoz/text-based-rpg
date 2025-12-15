@@ -28,6 +28,27 @@ namespace VGP133_Final_Assignment.Components
             }
         }
 
+        public ButtonRectangle(Vector2 dimensions, Vector2 position, string texturePath, bool render = false)
+        {
+            _width = (int)dimensions.X * UIScale;
+            _height = (int)dimensions.Y * UIScale;
+            _x = (int)position.X * UIScale;
+            _y = (int)position.Y * UIScale;
+            _posRaw = new Vector2(_x, _y);
+            _hitbox = new Rectangle(_x, _y, _width, _height);
+            _texture =
+                new Sprite(texturePath, new Vector2(_x, _y));
+
+            if (render)
+            {
+                _color = new Color(255, 0, 0, 50);
+            }
+            else
+            {
+                _color = new Color(0, 0, 0, 0);
+            }
+        }
+
         // IDrawable
         public void Update()
         {
