@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using Raylib_cs;
+using System.Numerics;
 using VGP133_Final_Assignment.Components;
 
 namespace VGP133_Final_Assignment.Game
@@ -14,13 +15,13 @@ namespace VGP133_Final_Assignment.Game
             Vector2 offset = new Vector2(5, 2);
 
             _actionsText[0] =
-                new Text("Item Shop", _actionTopLeft.PositionRaw + offset, 20, Color.White);
+                new Text("Attack", _actionTopLeft.PositionRaw + offset, 20, Color.White);
             _actionsText[1] =
-                new Text("Weapon Shop", _actionTopRight.PositionRaw + offset, 20, Color.White);
+                new Text("Flee", _actionTopRight.PositionRaw + offset, 20, Color.White);
             _actionsText[2] =
-                new Text("Inn", _actionBottomLeft.PositionRaw + offset, 20, Color.White);
+                new Text("Item", _actionBottomLeft.PositionRaw + offset, 20, Color.White);
             _actionsText[3] =
-                new Text("Barber Shop", _actionBottomRight.PositionRaw + offset, 20, Color.White);
+                new Text("Special", _actionBottomRight.PositionRaw + offset, 20, Color.White);
         }
 
         public override void Render()
