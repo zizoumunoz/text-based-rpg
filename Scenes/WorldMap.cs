@@ -30,7 +30,7 @@ namespace VGP133_Final_Assignment.Scenes
                 new Text(_currentTile.Name, new Vector2(52, 42), 20, Color.Red);
 
             _viewportLeft =
-                new Viewport(new Vector2(45, 37), new Vector2(118, 118), true);
+                new Viewport(new Vector2(49, 40), new Vector2(110, 110), true);
         }
 
         public override void Update()
