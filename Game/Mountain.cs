@@ -27,9 +27,10 @@ namespace VGP133_Final_Assignment.Game
         }
         public override void Update()
         {
-            // Check action buttons here
-
-            throw new NotImplementedException();
+            _actionBottomLeft.Update();
+            _actionBottomRight.Update();
+            _actionTopLeft.Update();
+            _actionTopRight.Update();
         }
         public override void Render()
         {

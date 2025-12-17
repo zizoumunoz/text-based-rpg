@@ -26,6 +26,7 @@ namespace VGP133_Final_Assignment.Core
             if (_closeButton.IsPressed)
             {
                 _isActive = false;
+                _closeButton.IsPressed = false;
             }
         }
 
@@ -42,5 +43,6 @@ namespace VGP133_Final_Assignment.Core
         private Vector2 _dimensions;
         private Rectangle _body;
         private bool _isActive;
+        public bool IsActive { get => _isActive; set => _isActive = value; }
     }
 }

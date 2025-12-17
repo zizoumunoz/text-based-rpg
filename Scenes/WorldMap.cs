@@ -29,7 +29,7 @@ namespace VGP133_Final_Assignment.Scenes
             _terrainBackground =
                 new Text(_currentTile.Name, new Vector2(52, 42), 20, Color.Red);
 
-            _viewportLeft =
+            _viewportInventory =
                 new Viewport(new Vector2(49, 40), new Vector2(110, 110), true);
         }
 
@@ -58,7 +58,17 @@ namespace VGP133_Final_Assignment.Scenes
                     break;
             }
 
-            _viewportLeft.Update();
+            _currentTile.Update();
+
+            // UpdateTileButtons();
+
+            _viewportInventory.Update();
+            if (_currentTile.ActionBottomLeft.IsPressed)
+            {
+                _viewportInventory.IsActive = true;
+            }
+
+            _currentTile.ActionBottomLeft.IsPressed = false;
         }
 
         public override void Render()
@@ -80,12 +90,12 @@ namespace VGP133_Final_Assignment.Scenes
 
             RenderTileButtons();
 
-            _viewportLeft.Render();
+            _viewportInventory.Render();
             _player.Render();
 
         }
 
-        public void RenderTileButtons()
+        void RenderTileButtons()
         {
             _currentTile.ActionTopLeft.Render();
             _currentTile.ActionTopRight.Render();
@@ -93,6 +103,14 @@ namespace VGP133_Final_Assignment.Scenes
             _currentTile.ActionBottomRight.Render();
 
             _currentTile.RenderActionText();
+        }
+
+        private void UpdateTileButtons()
+        {
+            _currentTile.ActionTopLeft.Update();
+            _currentTile.ActionTopRight.Update();
+            _currentTile.ActionBottomLeft.Update();
+            _currentTile.ActionBottomRight.Update();
         }
 
         private void UpdateCurrentTile()
@@ -134,7 +152,7 @@ namespace VGP133_Final_Assignment.Scenes
         private Map _map = new Map();
 
         // Viewports
-        Viewport _viewportLeft;
+        Viewport _viewportInventory;
 
         // Sprites
         Sprite _background =
