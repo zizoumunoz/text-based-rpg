@@ -4,7 +4,14 @@
     {
         public void AddItem(Item item)
         {
-            _items.Add(item);
+            int index = _items.IndexOf(item);
+            _items[index].Quantity++;
+        }
+
+        public void RemoveItem(Item item)
+        {
+            int index = _items.IndexOf(item);
+            _items[index].Quantity--;
         }
 
         public void SortQuantity()
