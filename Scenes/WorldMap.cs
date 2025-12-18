@@ -36,6 +36,17 @@ namespace VGP133_Final_Assignment.Scenes
             _buttons.Offset = new Vector2(6, 145);
             _statusWindows.Offset = new Vector2(32, 137);
 
+            _itemShopInventory = new Inventory();
+            _weaponShopInventory = new Inventory();
+
+            _itemShopInventory.Items.Add(new Item("Health Potion", "Consumable", 1, 10));
+            _itemShopInventory.Items.Add(new Item("Attack Potion", "Consumable", 1, 2));
+            _itemShopInventory.Items.Add(new Item("Defense Potion", "Consumable", 1, 2));
+
+            _weaponShopInventory.Items.Add(new Item("Sword", "Equipable", 1, 10));
+            _weaponShopInventory.Items.Add(new Item("Shield", "Equipable", 1, 10));
+            _weaponShopInventory.Items.Add(new Item("Armor", "Equipable", 1, 10));
+
 
             // get player from file
             string loadedJson = File.ReadAllText("player.json");
@@ -98,8 +109,6 @@ namespace VGP133_Final_Assignment.Scenes
 
             _currentViewport.Update();
             UpdateTileButtons();
-
-
         }
 
         public override void Render()
@@ -234,6 +243,8 @@ namespace VGP133_Final_Assignment.Scenes
 
         private Character? _player;
         private Map _map;
+        private Inventory _itemShopInventory;
+        private Inventory _weaponShopInventory;
 
         // Viewports
         Viewport _currentViewport;
