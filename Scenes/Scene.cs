@@ -9,7 +9,7 @@ namespace VGP133_Final_Assignment.Scenes
     {
         public Scene(SceneHandler sceneHandler)
         {
-            Handler = sceneHandler;;
+            Handler = sceneHandler;
         }
 
         public abstract void Update();

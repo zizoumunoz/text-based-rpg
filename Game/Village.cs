@@ -38,8 +38,6 @@ namespace VGP133_Final_Assignment.Game
             // Item shop    Weapon Shop
             // Inn          Barber Shop
             CheckBottomLeft();
-            Console.WriteLine(_actionBottomLeft.IsPressed);
-
         }
         public override void Render()
         {

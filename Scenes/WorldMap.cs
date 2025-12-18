@@ -13,9 +13,29 @@ namespace VGP133_Final_Assignment.Scenes
     {
         public WorldMap(SceneHandler sceneHandler) : base(sceneHandler)
         {
+            _castleBackground =
+                new Sprite("terrain_background_castle", s_origin);
+            _castleBackground.Offset = new Vector2(23, 16);
+
+            _mountainBackground =
+                new Sprite("terrain_background_mountains", s_origin);
+            _mountainBackground.Offset = new Vector2(23, 16);
+
+            _villageBackground =
+                new Sprite("terrain_background_village", s_origin);
+            _villageBackground.Offset = new Vector2(23, 16);
+
+            _forestBackground =
+                new Sprite("terrain_background_forest", s_origin);
+            _forestBackground.Offset = new Vector2(23, 16);
+
+            _terrainBackground = _villageBackground;
+            _terrainBackground.Offset = new Vector2(23, 16);
+
             _borders.Offset = new Vector2(24, 16);
             _buttons.Offset = new Vector2(6, 145);
             _statusWindows.Offset = new Vector2(32, 137);
+
 
             // get player from file
             string loadedJson = File.ReadAllText("player.json");
@@ -31,8 +51,6 @@ namespace VGP133_Final_Assignment.Scenes
 
             _currentTile =
                 _map.MapTiles[(int)_map.PlayerTileLocation.Y, (int)_map.PlayerTileLocation.X];
-            _terrainBackground =
-                new Text(_currentTile.Name, new Vector2(52, 42), 20, Color.Red);
 
             _inventoryViewport =
                 new Viewport(new Vector2(49, 40), new Vector2(110, 110), "Inventory", false);
@@ -89,6 +107,7 @@ namespace VGP133_Final_Assignment.Scenes
             Raylib.ClearBackground(Color.Black);
 
             _map.Render();
+            RenderTerrainBackground();
             _background.Render();
             _borders.Render();
             _buttons.Render();
@@ -99,7 +118,6 @@ namespace VGP133_Final_Assignment.Scenes
             Raylib.DrawText($"{_player.Atk}", 87 * UIScale, 192 * UIScale, 10 * UIScale, new Color(178, 139, 120));
             Raylib.DrawText($"{_player.Def}", 128 * UIScale, 192 * UIScale, 10 * UIScale, new Color(178, 139, 120));
 
-            RenderTerrainBackground();
 
             RenderTileButtons();
 
@@ -190,23 +208,23 @@ namespace VGP133_Final_Assignment.Scenes
             switch (_currentTile.Name)
             {
                 case "Ocean":
-                    _terrainBackground.TextData = _currentTile.Name;
+                    _terrainBackground = _villageBackground;
                     _terrainBackground.Render();
                     break;
                 case "Village":
-                    _terrainBackground.TextData = _currentTile.Name;
+                    _terrainBackground = _villageBackground;
                     _terrainBackground.Render();
                     break;
                 case "Forest":
-                    _terrainBackground.TextData = _currentTile.Name;
+                    _terrainBackground = _forestBackground;
                     _terrainBackground.Render();
                     break;
                 case "Mountain":
-                    _terrainBackground.TextData = _currentTile.Name;
+                    _terrainBackground = _mountainBackground;
                     _terrainBackground.Render();
                     break;
                 case "Castle":
-                    _terrainBackground.TextData = _currentTile.Name;
+                    _terrainBackground = _castleBackground;
                     _terrainBackground.Render();
                     break;
                 default:
@@ -232,7 +250,12 @@ namespace VGP133_Final_Assignment.Scenes
             new Sprite("world_buttons", s_origin);
         Sprite _statusWindows =
             new Sprite("world_status_window", s_origin);
-        Text _terrainBackground;
+        Sprite _terrainBackground;
+        Sprite _villageBackground;
+        Sprite _mountainBackground;
+        Sprite _castleBackground;
+        Sprite _forestBackground;
+
         Terrain _currentTile;
 
     }
