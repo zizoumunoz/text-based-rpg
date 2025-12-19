@@ -48,11 +48,6 @@ namespace VGP133_Final_Assignment.Scenes
             _weaponShopInventory.Items.Add(new Item("Shield", "Equipable", 1, 10));
             _weaponShopInventory.Items.Add(new Item("Armor", "Equipable", 1, 10));
 
-            _forestMonsters = new Monster[1];
-            _mountainMonsters = new Monster[5];
-
-            _forestMonsters[0] = new Golem(Variant.Forest);
-
             // get player from file
             string loadedJson = File.ReadAllText("player.json");
             _player = JsonSerializer.Deserialize<Character>(loadedJson);
@@ -232,16 +227,54 @@ namespace VGP133_Final_Assignment.Scenes
                     // monster
                     _currentTile.HasMonster = true;
 
-                    _currentMonster = new Golem(Variant.Forest);
+                    _currentMonster = GenerateMonster((MonsterType)rng.Next(5), Variant.Forest);
 
                     _statusText.TextData = $"A {_currentMonster.Name} has appeared!";
-                    
+
                 }
                 else
                 {
                     _player.Gold += 10;
                     _statusText.TextData = $"{_player.Name} has received 10 gold!";
                 }
+            }
+            else if (_currentTile.Name == "Mountain")
+            {
+                if (rng.Next(100) < 50)
+                {
+                    // monster
+                    _currentTile.HasMonster = true;
+
+                    _currentMonster = GenerateMonster((MonsterType)rng.Next(5), Variant.Mountain);
+
+                    _statusText.TextData = $"A {_currentMonster.Name} has appeared!";
+
+                }
+                else
+                {
+                    _player.Gold += 20;
+                    _statusText.TextData = $"{_player.Name} has received 10 gold!";
+                }
+            }
+        }
+
+        private Monster GenerateMonster(MonsterType monster, Variant variant)
+        {
+            switch (monster)
+            {
+                case MonsterType.PrairieDog:
+                    return new PrarieDog(variant);
+                case MonsterType.Slime:
+                    return new Slime(variant);
+                case MonsterType.Medusa:
+                    return new Medusa(variant);
+                case MonsterType.Crow:
+                    return new Crow(variant);
+                case MonsterType.Golem:
+                    return new Golem(variant);
+                default:
+                    return new Golem(variant);
+                    break;
             }
         }
 
@@ -284,11 +317,8 @@ namespace VGP133_Final_Assignment.Scenes
         private Map _map;
         private Inventory _itemShopInventory;
         private Inventory _weaponShopInventory;
-        private bool _monsterPresent;
 
         // Monster pool
-        private Monster[] _forestMonsters;
-        private Monster[] _mountainMonsters;
         private Monster _currentMonster;
 
         // Viewports
