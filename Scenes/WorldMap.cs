@@ -119,11 +119,11 @@ namespace VGP133_Final_Assignment.Scenes
                 Console.WriteLine("[DEBUG] Can't move, monster present. Try to flee.");
             }
 
-
             _currentTile.Update();
 
             _currentViewport.Update();
             UpdateTileButtons();
+
         }
 
         public override void Render()
