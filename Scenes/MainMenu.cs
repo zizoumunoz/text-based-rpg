@@ -9,18 +9,23 @@ namespace VGP133_Final_Assignment.Scenes
         public MainMenu(SceneHandler sceneHandler) : base(sceneHandler)
         {
             _newGame =
-                new ButtonRectangle(106, 17, 30, 62, "", true);
+                new ButtonRectangle(73, 17, 67, 64, "main_menu_options", true);
             _loadGame =
-                new ButtonRectangle(106, 17, 30, 89, "", true);
+                new ButtonRectangle(73, 17, 67, 84, "", true);
             _settings =
-                new ButtonRectangle(106, 17, 30, 118, "", true);
+                new ButtonRectangle(73, 17, 67, 104, "", true);
             _exit =
-                new ButtonRectangle(106, 17, 30, 151, "", true);
+                new ButtonRectangle(73, 17, 67, 124, "", true);
+
+            _background = new Sprite("book_empty", s_origin);
+
+            
         }
 
         public override void Render()
         {
             Raylib.ClearBackground(Color.White);
+            _background.Render();
             Raylib.DrawText("Main Menu Scene", 200, 200, 20, Color.Black);
             _newGame.Render();
             _loadGame.Render();
@@ -77,6 +82,8 @@ namespace VGP133_Final_Assignment.Scenes
         private ButtonRectangle _loadGame;
         private ButtonRectangle _settings;
         private ButtonRectangle _exit;
+
+        private Sprite _background;
 
     }
 }

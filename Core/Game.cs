@@ -13,13 +13,13 @@ namespace VGP133_Final_Assignment.Core
     {
         public Game()
         {
+            AssetManager.LoadAssets("Assets/character_creation");
+            AssetManager.LoadAssets("Assets/world_map");
             _sceneHandler.CurrentScene = new MainMenu(_sceneHandler);
         }
 
         public void Run()
         {
-            AssetManager.LoadAssets("Assets/character_creation");
-            AssetManager.LoadAssets("Assets/world_map");
 
             while (!Raylib.WindowShouldClose())
             {
