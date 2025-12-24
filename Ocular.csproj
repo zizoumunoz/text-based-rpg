@@ -218,6 +218,7 @@
 
   <ItemGroup>
     <Folder Include="Assets\menus\" />
+    <Folder Include="Assets\images\" />
   </ItemGroup>
 
 </Project>
