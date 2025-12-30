@@ -90,7 +90,6 @@ namespace VGP133_Final_Assignment.Scenes
 
             _statusText = new Text("", new Vector2(27, 166), 20, GameColors.DarkBrown);
 
-            _sceneTitle = new Text("WorldMap Scene", new Vector2(0, 0), 20, Color.RayWhite);
             _hpText = new Text($"{_player.CurrentHp}", new Vector2(45, 192), (int)(10), new Color(178, 139, 120));
             _atkText = new Text($"{_player.Atk}", new Vector2(87, 192), (int)(10), new Color(178, 139, 120));
             _defText = new Text($"{_player.Def}", new Vector2(128, 192), (int)(10), new Color(178, 139, 120));

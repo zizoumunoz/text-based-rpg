@@ -135,12 +135,6 @@ namespace VGP133_Final_Assignment.Scenes
             _classSelectLeft.Render();
             _classSelectRight.Render();
 
-
-            Raylib.DrawText("Character Creation Scene", 0, 0, 20, Color.Black);
-            Raylib.DrawText($"Current hair: {(int)_currentHairColor}", 0, 20, 20, Color.Black);
-            Raylib.DrawText($"Current gender: {(int)_currentGender}", 0, 40, 20, Color.Black);
-            Raylib.DrawText($"Current age: {(int)_currentAge}", 0, 60, 20, Color.Black);
-
             RenderCurrentClass();
             RenderStats();
             _backArrow.Render();
